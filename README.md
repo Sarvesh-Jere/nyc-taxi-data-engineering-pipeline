@@ -23,7 +23,7 @@ This pipeline is built on the **microservices architecture**, where each compone
 - **PostgreSQL** – Relational storage for processed data
 - **Apache Airflow** – Workflow orchestration and scheduling
 - **Docker + Docker Compose** – Containerized environment
-- **Jupyter Notebook** – For exploratory data analysis and visualization
+- **AWS Glue/ Looker Studio** – For exploratory data analysis and visualization
 
 ---
 
@@ -46,7 +46,7 @@ This pipeline is built on the **microservices architecture**, where each compone
    - Automates and schedules Spark jobs.
    - Can monitor ingestion and transformation tasks.
 
-5. **Jupyter Notebook**
+5. **Looker Studio**
    - Connects to PostgreSQL.
    - Performs analysis on taxi rides (e.g., trip counts, average fare by zone, etc.).
 
@@ -66,8 +66,8 @@ nyc-taxi-data-engineering-pipeline/
 │ └── taxi_pipeline_dag.py # DAG to schedule pipeline jobs
 ├── db/
 │ └── init.sql # PostgreSQL schema and table setup
-├── notebooks/
-│ └── analysis.ipynb # EDA and visualization notebook
+├── Looker Studio/
+│ └── analysis and visualization  # EDA and visualization
 
 Connect With Me
 
