@@ -1,35 +1,51 @@
-# nyc-taxi-data-engineering-pipeline
-So it is very important to know some topics before we dive into the project.
-You should first be familiar with microservices. So microservies is an architecture where we run all the services or systems differently and as an independant component. So basically each application process is run as a service independantly. These services communicate with each other using lightweight APIs. Services are built for business capabilities and each service performs an unique function which makes them easier to deploy. 
+# NYC Taxi Data Engineering Pipeline 🚖
 
-# NYC Taxi Data Engineering Pipeline 
+A complete real-time data engineering pipeline that ingests, processes, stores, and analyzes NYC Yellow Taxi trip data. The pipeline is built using Apache Kafka, Apache Spark Structured Streaming, PostgreSQL, and Apache Airflow, with Docker Compose used for containerized orchestration.
 
-##  Overview
-This project builds a **real-time data pipeline** for NYC taxi trip data using modern data engineering tools. It simulates real-world ingestion, processing, and orchestration to showcase data streaming and batch analytics capabilities.
+---
 
-##  Tools Used
-- **Apache Kafka** – real-time data ingestion
-- **Apache Spark Structured Streaming** – ETL and transformation
-- **PostgreSQL** – data storage
-- **Apache Airflow** – orchestration and scheduling
-- **Docker + Docker Compose** – containerized setup
-- **Jupyter Notebook** – exploratory analysis and visualization
+## 🛠️ Tech Stack
 
-##  Architecture
+| Tool              | Purpose                                      |
+|-------------------|----------------------------------------------|
+| Apache Kafka       | Real-time message ingestion (Producer & Topic) |
+| Apache Spark       | Structured Streaming for data transformation |
+| PostgreSQL         | Persistent data storage                      |
+| Apache Airflow     | Orchestration and job scheduling             |
+| Docker Compose     | Multi-container orchestration                |
+| Jupyter Notebook   | Exploratory data analysis & visualization    |
 
+---
 
-1. **Kafka Producer** reads CSV and pushes trip data to a Kafka topic.
-2. **Spark Streaming Job** consumes from Kafka, transforms the data, and loads into PostgreSQL.
-3. **Airflow DAG** schedules and monitors the entire flow.
-4. **Notebook** connects to PostgreSQL for visual exploration.
+## 📌 Architecture
 
-## 🗂 Project Structure
+1. A Kafka Producer reads data from NYC taxi CSV files and streams trip records into a Kafka topic.
+2. Spark Structured Streaming consumes the data from Kafka, processes and transforms it.
+3. The cleaned and structured data is loaded into a PostgreSQL database.
+4. Apache Airflow manages and schedules the entire pipeline as a Directed Acyclic Graph (DAG).
+5. Data is then queried and visualized using Jupyter Notebooks.
+
+---
+
+## 📁 Project Structure
 
 nyc-taxi-data-engineering-pipeline/
-├── kafka-producer/ # Kafka ingestion script
-├── spark-job/ # Spark ETL logic
-├── airflow/dags/ # Airflow DAG to schedule the flow
-├── db/ # DB schema
-├── notebooks/ # Visualizations
-├── docker-compose.yml # All-in-one orchestrator
-├── README.md # You're here!
+├── kafka-producer/ # Kafka data producer script
+├── kafka-consumer/ # Optional consumer for testing/debugging
+├── spark-job/ # Spark ETL logic using Structured Streaming
+├── db/ # PostgreSQL initialization or schema
+├── airflow/dags/ # Airflow DAGs to automate pipeline
+├── notebooks/ # Jupyter Notebooks for data exploration
+├── docker-compose.yml # Service orchestration
+└── README.md # Project documentation
+
+Key Highlights
+
+Real-time ingestion of high-volume NYC Taxi trip data.
+Stream processing with fault-tolerant and scalable Spark jobs.
+Data persistence with PostgreSQL for downstream querying.
+Seamless workflow management with Airflow DAGs.
+Local development using Docker Compose for complete isolation.
+📎 Connect With Me
+
+If you found this project insightful, feel free to ⭐ the repo and connect with me on LinkedIn!
