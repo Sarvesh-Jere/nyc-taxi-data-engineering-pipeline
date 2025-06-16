@@ -48,4 +48,4 @@ Seamless workflow management with Airflow DAGs.
 Local development using Docker Compose for complete isolation.
 📎 Connect With Me
 
-If you found this project insightful, feel free to ⭐ the repo and connect with me on LinkedIn!
+If you found this project insightful, feel free to ⭐ the repo and connect with me on LinkedIn! - https://www.linkedin.com/in/sarvesh-jere/
