@@ -1,51 +1,74 @@
 # NYC Taxi Data Engineering Pipeline 🚖
 
-A complete real-time data engineering pipeline that ingests, processes, stores, and analyzes NYC Yellow Taxi trip data. The pipeline is built using Apache Kafka, Apache Spark Structured Streaming, PostgreSQL, and Apache Airflow, with Docker Compose used for containerized orchestration.
+This project demonstrates a real-time data engineering pipeline for processing NYC taxi trip data using modern, industry-grade tools. It simulates ingestion, processing, storage, orchestration, and analysis — reflecting how streaming and batch pipelines are built in production.
 
 ---
 
-## 🛠️ Tech Stack
+## 📌 Key Concepts
 
-| Tool              | Purpose                                      |
-|-------------------|----------------------------------------------|
-| Apache Kafka       | Real-time message ingestion (Producer & Topic) |
-| Apache Spark       | Structured Streaming for data transformation |
-| PostgreSQL         | Persistent data storage                      |
-| Apache Airflow     | Orchestration and job scheduling             |
-| Docker Compose     | Multi-container orchestration                |
-| Jupyter Notebook   | Exploratory data analysis & visualization    |
+This pipeline is built on the **microservices architecture**, where each component runs independently in a container and communicates via APIs or messaging systems. This makes the system modular, scalable, and easier to debug or deploy.
 
 ---
 
-## 📌 Architecture
+##  Project Overview
 
-1. A Kafka Producer reads data from NYC taxi CSV files and streams trip records into a Kafka topic.
-2. Spark Structured Streaming consumes the data from Kafka, processes and transforms it.
-3. The cleaned and structured data is loaded into a PostgreSQL database.
-4. Apache Airflow manages and schedules the entire pipeline as a Directed Acyclic Graph (DAG).
-5. Data is then queried and visualized using Jupyter Notebooks.
+**Goal:** Stream and process NYC taxi trip data in real time, store it in a structured database, and enable analysis via notebooks.
 
 ---
 
-## 📁 Project Structure
+## ⚙️ Tools Used
+
+- **Apache Kafka** – Real-time data ingestion (streaming events)
+- **Apache Spark (Structured Streaming)** – Real-time ETL and transformation
+- **PostgreSQL** – Relational storage for processed data
+- **Apache Airflow** – Workflow orchestration and scheduling
+- **Docker + Docker Compose** – Containerized environment
+- **Jupyter Notebook** – For exploratory data analysis and visualization
+
+---
+
+## 🔄 Project Flow
+
+1. **Kafka Producer**
+   - Reads taxi trip records (simulated).
+   - Publishes messages to the Kafka topic `rides`.
+
+2. **Spark Structured Streaming Job**
+   - Subscribes to the Kafka topic.
+   - Transforms and parses incoming trip records.
+   - Inserts the clean data into a PostgreSQL table.
+
+3. **PostgreSQL Database**
+   - Stores structured taxi trip data.
+   - Serves as the analytical data store for downstream reporting.
+
+4. **Airflow DAG**
+   - Automates and schedules Spark jobs.
+   - Can monitor ingestion and transformation tasks.
+
+5. **Jupyter Notebook**
+   - Connects to PostgreSQL.
+   - Performs analysis on taxi rides (e.g., trip counts, average fare by zone, etc.).
+
+---
+
+##  Project Structure
 
 nyc-taxi-data-engineering-pipeline/
-├── kafka-producer/ # Kafka data producer script
-├── kafka-consumer/ # Optional consumer for testing/debugging
-├── spark-job/ # Spark ETL logic using Structured Streaming
-├── db/ # PostgreSQL initialization or schema
-├── airflow/dags/ # Airflow DAGs to automate pipeline
-├── notebooks/ # Jupyter Notebooks for data exploration
-├── docker-compose.yml # Service orchestration
-└── README.md # Project documentation
+├── README.md # This file - you are here :)
+├── docker-compose.yml # Multi-container setup for the pipeline
+├── kafka-producer/
+│ └── producer.py # Script to send messages to Kafka
+├── spark-job/
+│ └── spark_streaming.py # Spark job to consume and process Kafka data
+├── airflow/
+│ └── dags/
+│ └── taxi_pipeline_dag.py # DAG to schedule pipeline jobs
+├── db/
+│ └── init.sql # PostgreSQL schema and table setup
+├── notebooks/
+│ └── analysis.ipynb # EDA and visualization notebook
 
-Key Highlights
+Connect With Me
 
-Real-time ingestion of high-volume NYC Taxi trip data.
-Stream processing with fault-tolerant and scalable Spark jobs.
-Data persistence with PostgreSQL for downstream querying.
-Seamless workflow management with Airflow DAGs.
-Local development using Docker Compose for complete isolation.
-📎 Connect With Me
-
-If you found this project insightful, feel free to ⭐ the repo and connect with me on LinkedIn! - https://www.linkedin.com/in/sarvesh-jere/
+If you found this project insightful, feel free to ⭐ the repo and connect with me on LinkedIn - https://www.linkedin.com/in/sarvesh-jere/
