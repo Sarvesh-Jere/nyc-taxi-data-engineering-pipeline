@@ -54,7 +54,7 @@ rides = [
 
 # Send each record to Kafka topic
 for ride in rides:
-    producer.send('rides', value=ride)
+    producer.send('taxi_zones', value=ride)
     print(f"Sent: {ride}")
     time.sleep(1)
 
