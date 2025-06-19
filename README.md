@@ -51,23 +51,25 @@ This pipeline is built on the **microservices architecture**, where each compone
    - Performs analysis on taxi rides (e.g., trip counts, average fare by zone, etc.).
 
 ---
+## Project Structure
 
-##  Project Structure
-
+```text
 nyc-taxi-data-engineering-pipeline/
-├── README.md # This file - you are here :)
-├── docker-compose.yml # Multi-container setup for the pipeline
+├── README.md                  # This file – you are here :)
+├── docker-compose.yml        # Multi-container setup for the pipeline
 ├── kafka-producer/
-│ └── producer.py # Script to send messages to Kafka
+│   └── producer.py           # Script to send messages to Kafka
 ├── spark-job/
-│ └── spark_streaming.py # Spark job to consume and process Kafka data
+│   └── spark_streaming.py    # Spark job to consume and process Kafka data
 ├── airflow/
-│ └── dags/
-│ └── taxi_pipeline_dag.py # DAG to schedule pipeline jobs
+│   └── dags/
+│       └── taxi_pipeline_dag.py  # DAG to schedule pipeline jobs
 ├── db/
-│ └── init.sql # PostgreSQL schema and table setup
-├── Looker Studio/
-│ └── analysis and visualization  # EDA and visualization
+│   └── init.sql              # PostgreSQL schema and table setup
+└── Looker Studio/
+    └── analysis and visualization  # EDA and visualization
+```
+
 
 
 Connect With Me
