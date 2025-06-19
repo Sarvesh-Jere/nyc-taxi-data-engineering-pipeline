@@ -54,7 +54,6 @@ This pipeline is built on the **microservices architecture**, where each compone
 
 ##  Project Structure
 
-'''
 nyc-taxi-data-engineering-pipeline/
 ├── README.md # This file - you are here :)
 ├── docker-compose.yml # Multi-container setup for the pipeline
@@ -69,7 +68,7 @@ nyc-taxi-data-engineering-pipeline/
 │ └── init.sql # PostgreSQL schema and table setup
 ├── Looker Studio/
 │ └── analysis and visualization  # EDA and visualization
-'''
+
 
 Connect With Me
 
